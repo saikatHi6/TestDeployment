@@ -28,6 +28,22 @@ public class LinkList {
         }
         return head; 
 	}
+	
+	
+	public static Node removeDuplicatesUsingRecursion(Node head){
+		
+		if ( head == null ) return null;
+		  Node nextItem = head.next;
+		  while ( nextItem != null && head.data == nextItem.data ) {
+		    nextItem = nextItem.next;
+		  }
+		  head.next = removeDuplicatesUsingRecursion( nextItem );
+		  return head;
+		
+		
+	}
+	
+	
 
 	public static  Node insert(Node head,int data)
 	{
@@ -64,7 +80,10 @@ public class LinkList {
 			int ele=sc.nextInt();
 			head=insert(head,ele);
 		}
-		head=removeDuplicates(head);
+		//head=removeDuplicates(head);
+		
+		head = removeDuplicatesUsingRecursion(head);
+		
 		display(head);
 
 	}

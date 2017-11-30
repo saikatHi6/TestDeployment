@@ -48,5 +48,22 @@ public class ArrayListImpl {
 	        display(head);
 	        sc.close();
 	    }
+	    
+	    void ReversePrint(Node head) {
+	    	  // This is a "method-only" submission. 
+	    	  // You only need to complete this method. 
+	    	    Node first = head;
+	    	    Node reverse = null;
+	    	    while(first!=null){
+	    	        Node second = first.next;
+	    	        first.next  = reverse;
+	    	        reverse     = first;
+	    	        first       = second;
+	    	    }
+	    	    if(head!=null){
+	    	        head = reverse;
+	    	   }
+
+	    	}
 
 }
