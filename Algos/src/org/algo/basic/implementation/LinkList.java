@@ -82,9 +82,45 @@ public class LinkList {
 		}
 		//head=removeDuplicates(head);
 		
-		head = removeDuplicatesUsingRecursion(head);
+		//head = removeDuplicatesUsingRecursion(head);
 		
-		display(head);
-
+		//display(head);
+		//display(reverse(head));
+		//recursiveDisplay(head);
+		recursiveReverseDisplay(head);
 	}
+	
+	
+	public static Node reverse(Node head){
+		Node prev=null;
+		Node next = null;
+		Node current = head;
+		while(current!=null){
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		return prev;
+	}
+	
+	public static Node recursiveDisplay(Node head){
+		if(head==null){
+			return head;
+		}
+		else{
+			System.out.println(head.data);
+			return recursiveDisplay(head.next);
+		}
+	}
+	
+	public static void recursiveReverseDisplay(Node head){
+		if(head==null){
+			return ;
+		}
+
+		recursiveReverseDisplay(head.next);
+		System.out.println(head.data);
+	}
+	
 }
